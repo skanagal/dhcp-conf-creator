@@ -1,22 +1,22 @@
 ---
 all:
-  serverIP: 172.20.48.144
+  serverIP: 192.168.56.144
   host_subnet:
-    subnet: 172.30.154.0
+    subnet: 192.168.57.0
     netmask: 255.255.255.128
 
   server_subnet:
-    subnet: 172.20.48.128
+    subnet: 192.168.56.128
     netmask: 255.255.255.128
 
   hosts:
-    ghs270:
-      mac: 74:83:ef:2e:c8:0e
-      fixedAddr: 172.30.154.64
-      gw: 172.30.154.1
+    router1:
+      mac: aa:bb:cc:dd:ee:ff
+      fixedAddr: 192.168.57.64
+      gw: 192.168.57.1
       netmask: 255.255.255.128
-    gts253:
-      mac: 28:99:3a:8f:b7:e6
-      fixedAddr: 172.30.154.53
-      gw: 172.30.154.1
+    router2:
+      mac: aa:bb:cc:dd:ee:f2
+      fixedAddr: 192.168.57.53
+      gw: 192.168.57.1
       netmask: 255.255.255.128

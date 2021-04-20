@@ -1,0 +1,17 @@
+{% set myvars = hostvars['127.0.0.1']['all'] %}
+subnet {{myvars['server_subnet']['subnet']}} netmask {{myvars['server_subnet']['netmask']}} {
+}
+
+subnet {{myvars['host_subnet']['subnet']}} netmask {{myvars['host_subnet']['netmask']}} {
+}
+
+
+{% for key, value in myvars['hosts'].items()%}
+host {{key}} {
+      hardware ethernet {{value['mac']}};
+      option bootfile-name "http://{{myvars['serverIP']}}/ztp/bootstrap";
+      fixed-address {{value['fixedAddr']}};
+      option routers {{value['gw']}};
+      option subnet-mask {{value['netmask']}};
+}
+{%endfor%}

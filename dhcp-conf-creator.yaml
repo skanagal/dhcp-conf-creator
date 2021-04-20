@@ -1,0 +1,14 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  no_log: False
+  tasks:
+    - name: Generate dhcp configuration from template
+      template:
+          dest: config/dhcpd.conf
+          src: templates/dhcpd-conf.j2
+      delegate_to: 127.0.0.1
+
+    - debug: var=hostvars
+      delegate_to: 127.0.0.1
